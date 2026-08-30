@@ -17,5 +17,6 @@
 			],
 			"preLaunchTask": "${defaultBuildTask}"
 		}
-	]
+	],
+	"timeout": 30000
 }

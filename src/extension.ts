@@ -1,13 +1,13 @@
 import * as vscode from 'vscode';
+import { registerCommands } from './commands/registerCommands';
 
 export function activate(context: vscode.ExtensionContext) {
-	console.log('Congratulations, your extension "sample-extension" is now active!');
+	console.log('"sample-extension" activated.');
+	vscode.window.showInformationMessage(`"sample-extension" activated.`);
 
-	const disposable = vscode.commands.registerCommand('sample-extension.helloWorld', () => {
-		vscode.window.showInformationMessage('Hello World from Sample Extension!');
-	});
-
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(
+		registerCommands()
+	);
 }
 
 export function deactivate() {}

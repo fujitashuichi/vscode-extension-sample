@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "sample-extension.helloWorld",
-        "title": "Hello World"
+        "command": "sample-extension.countCharacters",
+        "title": "Count Characters"
       }
     ]
   },
