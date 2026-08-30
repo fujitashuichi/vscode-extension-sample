@@ -9,13 +9,15 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:sample-extension.countCharacters"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "sample-extension.helloWorld",
-        "title": "Hello World"
+        "command": "sample-extension.countCharacters",
+        "title": "Count Characters"
       }
     ]
   },
