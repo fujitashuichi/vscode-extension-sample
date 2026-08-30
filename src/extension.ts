@@ -10,4 +10,6 @@ export function activate(context: vscode.ExtensionContext) {
 	);
 }
 
-export function deactivate() {}
+export function deactivate() {
+	console.log('"sample-extension" deactivated.');
+}
