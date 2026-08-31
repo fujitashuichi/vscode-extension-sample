@@ -9,7 +9,7 @@ const checkCodeVersion = async (
   asset: AssetStorage
 ): Promise<void> => {
   await runPowerShellScript(
-    asset.getUri("src/powerShell/scripts/checkCodeVersion.ps1"),
+    asset.getUri("powerShell/scripts/checkCodeVersion.ps1"),
     TASK_NAME
   );
 };

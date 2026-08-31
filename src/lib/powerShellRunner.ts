@@ -1,11 +1,18 @@
 import * as process from "node:process";
 import * as vscode from "vscode";
 
+// TASK_TYPEは、他の拡張機能と重複しないようにします
+const TASK_TYPE = "sample-extension.b724f99c-224d-4b47-824b-3af95d45e921.ShellScript";
+
 export async function runPowerShellScript(
   scriptUri: vscode.Uri,
   taskName: string
 ): Promise<void> {
-  const isSameTask = vscode.tasks.taskExecutions.some(t => t.task.name === taskName);
+  const isSameTask = vscode.tasks.taskExecutions.some(t =>
+    t.task.definition.type === TASK_TYPE &&
+    t.task.name === taskName
+  );
+
   if (isSameTask) {
     vscode.window.showErrorMessage(`既に '${taskName}' が実行中です`);
     return;
@@ -15,10 +22,10 @@ export async function runPowerShellScript(
   const shellPath = isWindows ? "powershell.exe" : "pwsh";
 
   const task = new vscode.Task(
-    { type: "shell" },
+    { type: TASK_TYPE },
     vscode.TaskScope.Workspace,
     taskName,
-    "Extension PowerShell",
+    "shell script",
     new vscode.ShellExecution(
       shellPath,
       [
