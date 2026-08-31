@@ -9,15 +9,16 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:sample-extension.countCharacters"
-  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "sample-extension.countCharacters",
         "title": "Count Characters"
+      },
+      {
+        "command": "sample-extension.checkCodeVersion",
+        "title": "Check Code Version"
       }
     ]
   },

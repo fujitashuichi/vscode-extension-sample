@@ -1,8 +1,13 @@
 import * as vscode from 'vscode';
 import { createCountCharacters } from './countCharacters/countCharactersCommand';
+import { createCheckCodeVersion } from './checkCodeVersion/checkVersionCommand';
+import { AssetStorage } from '../assets/AssetStorage';
 
-export function registerCommands(): vscode.Disposable {
+export function registerCommands(
+  asset: AssetStorage
+): vscode.Disposable {
   return vscode.Disposable.from(
-    createCountCharacters()
+    createCountCharacters(),
+    createCheckCodeVersion(asset)
   );
 };
