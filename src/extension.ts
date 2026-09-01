@@ -2,9 +2,11 @@ import * as vscode from 'vscode';
 import { registerCommands } from './commands/registerCommands';
 import { AssetStorage } from './assets/AssetStorage';
 
+const EXTENSION_NAME = "sample-extension";
+
 export function activate(context: vscode.ExtensionContext) {
-	console.log('"sample-extension" activated.');
-	vscode.window.showInformationMessage(`"sample-extension" activated.`);
+	console.log(`${EXTENSION_NAME} activated.`);
+	vscode.window.showInformationMessage(`${EXTENSION_NAME} activated.`);
 
 	const asset = new AssetStorage(context);
 
@@ -14,5 +16,5 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 export function deactivate() {
-	console.log('"sample-extension" deactivated.');
+	console.log(`${EXTENSION_NAME} deactivated.`);
 }
